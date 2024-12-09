@@ -29,7 +29,70 @@
 
             <!-- Botón T1 -->
             <button class="season-button" onclick="openModal('modal-season-1')">Temporada 1</button>
-        </main> 
+
+            <!-- Modal T1 -->
+            <div id="modal-season-1" class="modal" onclick="closeModal(event, 'modal-season-1')">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <span class="close" onclick="closeModal(event, 'modal-season-1')">&times;</span>
+                    <h3>Temporada 1</h3>
+                    <div class="episodes">
+                        <!-- Episodios -->
+                        <div class="episode" onclick="toggleEpisodeDetails(this)">
+                            <h4>Episodio 1: "Hola Mundo!"</h4>
+                            <p class="episode-details">
+                                Mauricio decide dar un vuelco a su vida aprendiendo Python.
+                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                            </p>
+                        </div>
+
+                        <div class="episode" onclick="toggleEpisodeDetails(this)">
+                            <h4>Episodio 2: La calculadora</h4>
+                            <p class="episode-details">
+                                Mauricio decide dar un vuelco a su vida aprendiendo Python.
+                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                            </p>
+                        </div>
+
+                        <div class="episode" onclick="toggleEpisodeDetails(this)">
+                            <h4>Episodio 3: El juego de las adivinanzas"</h4>
+                            <p class="episode-details">
+                                Mauricio decide dar un vuelco a su vida aprendiendo Python.
+                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>                  
+        </main>
+        
+        <!-- Pie de página -->
+        <footer id="contacto">
+            <p>&copy; 2024 Mauricio Verde. Creado por <a href="https://github.com/tuusuario">Juan Martínez Gómez</a>.</p>
+        </footer>
+
+        <!-- Script para los modales y episodios -->
+        <script>
+            function openModal(modalId){
+                const modal = document.getElementById(modalId);
+                modal.style.opacity = '1';
+                modal.style.pointerEvents = 'auto';
+            }
+
+            function closeModal(event, modalId){
+                const modal = document.getElementById(modalId);
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+            }
+
+            function toggleEpisodeDetails(episode){
+                const details = episode.querySelector('.episode-details');
+                if (details.style.maxHeight){
+                    details.style.maxHeight = null;
+                } else {
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                }
+            }
+        </script> 
         
     </body>
 
