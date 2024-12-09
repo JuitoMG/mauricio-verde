@@ -1,0 +1,16 @@
+/* Márgenes del diseño en general */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+header {
+    padding: 4rem 1rem;
+    margin-top: 3rem;
+    background-color: #e9f5e9;
+    color: #155724
+}
