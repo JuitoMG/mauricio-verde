@@ -152,3 +152,41 @@ header {
 .episode-details a:hover {
     color: #90ee90;
 }
+
+/*Contenedor de pestañas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.tab {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab.active {
+    background-color: #155724;
+}
+
+.tab:hover {
+    background-color: #218838;
+}
+
+/*Detalles episodio en página de temporada*/
+.episode-details {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
