@@ -11,9 +11,9 @@
         <!-- Menú -->
         <nav class="navbar">
             <ul>
-                <li><a href="#quien-soy">Quién soy</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="temporadas/listado-proyectos.html">Listado de proyectos</a></li>
+                <li><a href="temporadas/contacto.html">Hablemos</a></li>
             </ul>
         </nav>
         
@@ -40,29 +40,33 @@
                         <div class="episode" onclick="toggleEpisodeDetails(this)">
                             <h4>Episodio 1: "Hola Mundo!"</h4>
                             <p class="episode-details">
-                                Mauricio, cansado de la monotonía como técnico informático, decide dar un vuelco a su vida. Siguiendo las últimas tendencias se da cuenta de que el futuro está en la Inteligencia Artificial, así que inicia un duro camino de aprendizaje para destacar en ese nuevo mundo desconocido para él. 
-                                <a href="temporadas/t01/t01e01.html" target="_blank">Ver proyecto</a>
+                                Mauricio, cansado de su vida monótona como técnico informático, decide aprender programación para reinventarse. En este episodio empieza creando un sencillo proyecto de "Hola Mundo" y reflexiona sobre los desafíos del cambio. 
+                                <a href="temporadas/t01/t01e01.html">Leer más</a>
                             </p>
                         </div>
 
                         <div class="episode" onclick="toggleEpisodeDetails(this)">
                             <h4>Episodio 2: La calculadora</h4>
                             <p class="episode-details">
-                                Tras unas nociones básicas de programación, Mauricio empieza a desarrollar una calculadora.
-                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                                Mauricio se enfrenta a su primer reto: Crear una calculadora funcional con Python.
+                                Aprenderá a manejar funciones básicas, bucles y condiciones, sentando las bases de su desarrollocomo programador.
+                                <a href="temporadas/t01/t01e02.html">Leer más</a>
                             </p>
                         </div>
 
                         <div class="episode" onclick="toggleEpisodeDetails(this)">
                             <h4>Episodio 3: El juego de las adivinanzas"</h4>
                             <p class="episode-details">
-                                Mauricio decide dar un vuelco a su vida aprendiendo Python.
-                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                                Avanzando en su aprendizaje, Mauricio desarrolla un juego de adivinanzas. Descubre cómo involucrar al ususario a través de entradas dinámicas y mejora su lógica de programación.
+                                <a href="temporadas/t01/t01e03.html">Leer más</a>
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>                  
+            </div> 
+            
+            <!-- Botón T2 -->
+            <button class="season-button" onclick="openModal('modal-season-02')">Temporada 2</button>
         </main>
         
         <!-- Pie de página -->
@@ -84,30 +88,30 @@
                 modal.style.pointerEvents = 'none';
             }
 
-            function toggleEpisodeDetails(episode){
+            function toggleEpisodeDetails(episode) {
+
                 const details = episode.querySelector('.episode-details');
-                if (details.style.maxHeight){
-                    details.style.maxHeight = null;
+                const allEpisodes = document.querySelectorAll('.episode');
+
+                if (episode.classList.contains('active')) {
+                     // Si está activo, cerramos este episodio
+                    episode.classList.remove('active');
+                     details.style.maxHeight = null;
                 } else {
+                     // Si no está activo, cerramos todos los demás y abrimos este
+                    allEpisodes.forEach(ep => {
+                        ep.classList.remove('active');
+                        const epDetails = ep.querySelector('.episode-details');
+                        if (epDetails) {
+                            epDetails.style.maxHeight = null;
+                        }
+                    });
+
+                    episode.classList.add('active');
                     details.style.maxHeight = details.scrollHeight + 'px';
                 }
-
-                //Cerrar episodios
-                const allDetails = document.querySelectorAll('.episode-details');
-                allDetails.forEach(detail => {
-                    if (detail !== episode.querySelector('.episode-details')) {
-                        detail.style.maxHeight = null;
-                    }
-                });
-/*
-                //Para ir alternando la vista del episodio seleccionado
-                const details = episode.querySelector('.episode-details');
-                if(details.style.maxHeight) {
-                    details.style.maxHeight = null;
-                } else {
-                    details.style.maxHeight = details.scrollHeight + 'px';
-                }*/
             }
+
         </script> 
         
     </body>

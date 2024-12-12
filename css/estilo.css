@@ -138,10 +138,9 @@ header {
     color: #f9f9f9;
     margin-top: 0.5rem;
     font-size: 1rem;
-    background-color: rgba(0,128,0,0.9);
+    background-color: #196b2c;
     border-radius: 8px;
     padding: 0 0.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: max-height 0.3s ease, padding 0.3s ease;
     line-height: 1.5;
     text-align: justify;
@@ -156,3 +155,250 @@ header {
     color: #ffffff;
 }
 
+.episode.active {
+    background-color: #155724;
+    transform: none;
+    cursor: default;
+}
+
+/* Contenedor del contenido del episodio en su página */
+#contenido-episodio {
+    padding: 2rem 1rem;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Título del episodio */
+.episodio-titulo h2 {
+    font-size: 2rem;
+    color: #155724;
+    margin-bottom: 0.5rem;
+}
+
+.episodio-titulo .subtitulo {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-top: -0.5rem;
+}
+
+/* Sinopsis */
+.episodio-sinopsis h3,
+.episodio-detalles h3,
+.episodio-proyectos h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.episodio-sinopsis p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Detalles */
+.episodio-detalles ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.episodio-detalles li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Proyectos */
+.episodio-proyectos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.episodio-proyectos li {
+    margin-bottom: 1rem;
+}
+
+.episodio-proyectos a {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.episodio-proyectos a:hover {
+    color: #155724;
+}
+
+/* Botón volver al inicio */
+
+.btn-return {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color:white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-return:hover {
+    background-color: #155724;
+    transform: scale(1.05);
+}
+
+/* Página de contacto con fondo verde semitransparente */
+.contact-page {
+    background-image: url('../assets/img/yo-juan.jpg');
+    background-size: cover;
+    background-position: center bottom; /* Ajusta la cara hacia abajo */
+    background-attachment: fixed; /* Fija la imagen para mejor visualización */
+    color: white;
+    padding: 4rem 1rem; /* Ajusta el padding para evitar que el contenido se sobreponga */
+    min-height: 100vh; /* Asegura que ocupe toda la ventana del navegador */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido al principio */
+    position: relative;
+}
+
+/* Capa verde semitransparente sobre la imagen */
+.contact-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 167, 69, 0.7); /* Fondo verde semitransparente */
+    z-index: 1; /* Asegura que esté debajo del contenido pero encima de la imagen */
+}
+
+/* Contenido */
+.contact-page .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    z-index: 2; /* Asegura que el contenido se muestre encima de la capa verde */
+    position: relative;
+}
+
+/* Sección descriptiva */
+.contact-description h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem; /* Añade espacio extra en la parte superior */
+}
+
+.contact-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+/* Sección de contacto */
+.contact-details {
+    margin-top: 2rem; /* Reduce el espacio entre la descripción y la sección de contacto */
+}
+
+.contact-details h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.contact-details li {
+    margin: 0.5rem 0;
+}
+
+.contact-details a {
+    color: white;
+    text-decoration: underline;
+}
+
+.contact-details a:hover {
+    color: #e0e0e0;
+}
+
+/* Pie de página */
+footer {
+    margin-top: auto; /* Empuja el pie de página al fondo */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1rem 0;
+    background: rgba(40, 167, 69, 0.7); /* Color verde semitransparente para el pie de página */
+    font-size: 0.9rem;
+}
+
+
+/* Contenedor principal */
+.projects-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Títulos de las temporadas */
+.section-title {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    color: #155724;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 0.5rem;
+}
+
+/* Tarjetas de proyectos */
+.project-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos de proyectos */
+.project-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+    color: #28a745;
+}
+
+/* Descripción del proyecto */
+.project-card p {
+    margin: 0 0 1rem;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* Botón "Ver Proyecto" */
+.project-card .button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #28a745;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-card .button:hover {
+    background-color: #155724;
+}
