@@ -28,12 +28,12 @@
             <h2>Temporadas</h2>
 
             <!-- Botón T1 -->
-            <button class="season-button" onclick="openModal('modal-season-1')">Temporada 1</button>
+            <button class="season-button" onclick="openModal('modal-season-01')">Temporada 1</button>
 
             <!-- Modal T1 -->
-            <div id="modal-season-1" class="modal" onclick="closeModal(event, 'modal-season-1')">
+            <div id="modal-season-01" class="modal" onclick="closeModal(event, 'modal-season-01')">
                 <div class="modal-content" onclick="event.stopPropagation()">
-                    <span class="close" onclick="closeModal(event, 'modal-season-1')">&times;</span>
+                    <span class="close" onclick="closeModal(event, 'modal-season-01')">&times;</span>
                     <h3>Temporada 1</h3>
                     <div class="episodes">
                         <!-- Episodios -->
@@ -41,7 +41,7 @@
                             <h4>Episodio 1: "Hola Mundo!"</h4>
                             <p class="episode-details">
                                 Mauricio, cansado de la monotonía como técnico informático, decide dar un vuelco a su vida. Siguiendo las últimas tendencias se da cuenta de que el futuro está en la Inteligencia Artificial, así que inicia un duro camino de aprendizaje para destacar en ese nuevo mundo desconocido para él. 
-                                <a href="https://github.com/tuusuario/episodio1" target="_blank">Ver proyecto</a>
+                                <a href="temporadas/t01/t01e01.html" target="_blank">Ver proyecto</a>
                             </p>
                         </div>
 
@@ -91,6 +91,22 @@
                 } else {
                     details.style.maxHeight = details.scrollHeight + 'px';
                 }
+
+                //Cerrar episodios
+                const allDetails = document.querySelectorAll('.episode-details');
+                allDetails.forEach(detail => {
+                    if (detail !== episode.querySelector('.episode-details')) {
+                        detail.style.maxHeight = null;
+                    }
+                });
+/*
+                //Para ir alternando la vista del episodio seleccionado
+                const details = episode.querySelector('.episode-details');
+                if(details.style.maxHeight) {
+                    details.style.maxHeight = null;
+                } else {
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                }*/
             }
         </script> 
         

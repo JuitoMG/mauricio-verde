@@ -135,58 +135,24 @@ header {
 .episode-details {
     max-height: 0;
     overflow: hidden;
-    color: white;
+    color: #f9f9f9;
     margin-top: 0.5rem;
-    color: #f0f0f0;
-    font-size: 0.9rem;
-    background-color: rgba(0,0,0,0.1);
+    font-size: 1rem;
+    background-color: rgba(0,128,0,0.9);
+    border-radius: 8px;
     padding: 0 0.5rem;
-    border-left: 3px solid #155724;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: max-height 0.3s ease, padding 0.3s ease;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .episode-details a {
-    color: #ffffff;
+    color: #90ee90;
+    text-decoration: underline;
 }
 
 .episode-details a:hover {
-    color: #90ee90;
+    color: #ffffff;
 }
 
-/*Contenedor de pestañas */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.tab {
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.tab.active {
-    background-color: #155724;
-}
-
-.tab:hover {
-    background-color: #218838;
-}
-
-/*Detalles episodio en página de temporada*/
-.episode-details {
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
