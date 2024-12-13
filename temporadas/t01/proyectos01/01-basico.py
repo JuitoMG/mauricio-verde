@@ -111,3 +111,25 @@ print(numerador%denominador2)
 numeroCualquiera = 40
 numeroCualquiera += 1
 print(numeroCualquiera)
+
+#operadores lógicos
+
+a = True
+b = False
+resultadoY = a and b
+resultadoOR = a or b
+resultadoNOT = not a
+print(resultadoY,resultadoOR,resultadoNOT)
+
+#Sintaxis para varios operadores lógicos
+edadAhora = 33
+
+veintes = edad >= 20 and edad <30
+print(veintes)
+treintas = edad >= 30 and edad <40
+print(treintas)
+
+if (20 <= edad < 30) or (30 <= edad < 40):
+    print('Dentro de rango (20\'s) o (30\'s)')
+else:
+    print('No está dentro de rango')    
