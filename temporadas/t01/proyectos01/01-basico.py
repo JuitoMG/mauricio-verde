@@ -132,4 +132,54 @@ print(treintas)
 if (20 <= edad < 30) or (30 <= edad < 40):
     print('Dentro de rango (20\'s) o (30\'s)')
 else:
-    print('No está dentro de rango')    
+    print('No está dentro de rango')
+
+
+# Salida de datos con print()        
+# Entrada de datos con input()
+
+nombre = input('Introduzca su nombre')
+print('Bienvenido ',nombre,'!')
+
+#Para que lo introducido sea número hay que castear
+
+edad = int(input('Introduce edad'))
+print('El año que viene tendrá ',edad+1,' años')
+
+#OBJETOS MUTABLES E INMUTABLES
+
+#Obtener la dirección de memoria de una variable
+a = 65
+print('La dirección de memoria es ',id(a))
+
+#obtener la dirección de memoria de una variable que apunta a otra
+
+b = a
+print('Dirección en memoria de a: ', id(a))
+print('Dirección en memoria de b: ', id(b))
+
+#Si cambiamos la variable, realmente se crea una copia en otra dirección de memoria
+
+print('Dirección en memoria de a: ', id(a))
+a+=2
+print('Dirección en memoria de a: ', id(a))
+
+#Obtener dirección de memoria de una tupla
+
+tupla = (1,2,3,4,5)
+print("La dirección de memoria es ", id(tupla))
+
+#De una lista
+
+lista = (1,2,3,4,5)
+print("La dirección de memoria es ", id(lista))
+
+#De un diccionario
+
+dic = {'a':1, 'b':2}
+print(dic)
+print("La dirección de memoria es ", id(dic))
+
+dic['c'] = 3
+print(dic)
+print("La dirección de memoria es ", id(dic))
