@@ -134,6 +134,13 @@ if (20 <= edad < 30) or (30 <= edad < 40):
 else:
     print('No está dentro de rango')
 
+#IN
+
+opcion = input('Elige opcion: opcion1, opcion2, opcion3: ')
+pasoMinusculas = opcion.lower()
+if pasoMinusculas in('opcion1', 'opcion2', 'opcion3'):
+    print('Opcion Valida: ',pasoMinusculas)    
+
 
 # Salida de datos con print()        
 # Entrada de datos con input()
