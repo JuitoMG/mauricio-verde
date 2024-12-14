@@ -15,7 +15,7 @@ print(cadenaDeTexto.rfind('quien'))
 
 #---------------------------------------------------------------------------------
 
-# replace devulve una cadena donde un valor especificado se reemplaza con un valor especificado
+# replace devuelve una cadena donde un valor especificado se reemplaza con un valor especificado
 
 miString = "Esto es bonito. Esto es bueno."
 newString = miString.replace("es","FUE")
