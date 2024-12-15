@@ -121,6 +121,13 @@ resultadoOR = a or b
 resultadoNOT = not a
 print(resultadoY,resultadoOR,resultadoNOT)
 
+#Operador ternario
+
+num = 12
+var = 'par' if (num%2 == 0) else 'impar'
+print(var)
+
+
 #Sintaxis para varios operadores lógicos
 edadAhora = 33
 

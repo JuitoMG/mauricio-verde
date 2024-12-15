@@ -73,3 +73,12 @@ else:
     else:
         print('Puedes comprar el coche')    
 
+#Menú básico
+
+condicion = int(input('Elige una opción'))
+if condicion ==1:
+    print('1')
+elif condicion ==2:
+    print('2') 
+else:
+    print('Error')       
