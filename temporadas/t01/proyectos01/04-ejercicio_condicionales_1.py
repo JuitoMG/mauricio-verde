@@ -75,7 +75,56 @@ def opcion5():
         total = compra*0.9
         print(f'El total de la compra tras el descuento del 10% es {total:.2f}€')
     else:
-        print(f'Total a pagar: {compra:.2f}€')        
+        print(f'Total a pagar: {compra:.2f}€')     
+
+#6. Escribe un programa que sume todos los números enteros del
+#  1 al 100 usando un bucle for
+
+def opcion6():
+    suma = 0
+    for numero in range(1,100):
+        suma += numero
+    print('La suma de los números del uno al 100 es: ',suma) 
+
+
+#7. Genera e imprime la lista de los cuadrados de los 
+# primeros 10 números enteros
+
+def opcion7():
+    cuadrados = []
+    for numero in range(1,11):
+        cuadrados.append(numero ** 2)
+    print('Cuadrados de los números del 1 al 10:',cuadrados)   
+
+#8. Cuenta cuántas veces aparece la letra 'a' en un String
+
+def opcion8():
+    texto = str(input('Escribe una palabra o frase'))
+    contador = 0
+    for caracter in texto:
+        if caracter == 'a':
+            contador +=1
+    print(f'La letra "a" aparece {contador} veces en "{texto}".') 
+
+#9. Tabla de multiplicar
+
+def opcion9():
+    numero = int(input('Introdue un número para saber su tabla'))
+    print('--- Tabla del ',numero,'---')
+    for i in range(1,11):
+        resultado = numero * i
+        print(f'{numero}x{i}={resultado}')
+
+#10. Suma los números introduccidos hasta que se introduzca un 0,
+#  mostrando el resultado al final
+
+def opcion10():
+    suma = 0
+    numero = int(input('Introduce un número (0 para terminar) '))
+    while numero !=0:
+        suma += numero
+        numero = int(input('Introduce otro número (0 para terminar) '))
+    print('La suma total es: ',suma)            
 
 
 
@@ -84,12 +133,20 @@ def opcion5():
 
 #Menú ejercicios
 
-print('Menú')
+print('--- Menú ---\n')
+print('--- Ejercicios condicionales ---\n')
 print('1. Edad, mayor o menor')
 print('2. Número mayor, menor o igual')
 print('3. Calificación de nota')
 print('4. Descuentos almacén')
 print('5. Descuentos por gasto')
+print('\n--- Ejercicios bucles ---\n')
+print('6. Suma números enteros')
+print('7. Lista de los primeros 10 cuadrados')
+print('8. Conteo letra A')
+print('9. Tabla de multiplicar')
+print('10. Suma de números proporcionados')
+
 
 opcion = int(input('Elige opción: '))
 
@@ -102,7 +159,17 @@ elif opcion == 3:
 elif opcion == 4:
     opcion4()
 elif opcion == 5:
-    opcion5()    
+    opcion5()
+elif opcion == 6:
+    opcion6()
+elif opcion == 7:
+    opcion7()
+elif opcion == 8:
+    opcion8() 
+elif opcion == 9:
+    opcion9()
+elif opcion == 10:
+    opcion10()                         
 
 else:
     print('Opción incorrecta')
