@@ -3,6 +3,7 @@
 
 """
 
+import os
 import csv
 
 class Libro:
@@ -19,7 +20,11 @@ class Libro:
 
 
 class Libreria:
-    def __init__(self, archivo='libreria.csv'):
+
+    dir = os.path.dirname(os.path.abspath(__file__))
+    ruta = os.path.join(dir,'libreria.csv')
+
+    def __init__(self, archivo=ruta):
         self.archivo = archivo
 
     def registrar_libro(self, libro):
@@ -27,7 +32,7 @@ class Libreria:
             writer = csv.writer(file)
             writer.writerow([libro.titulo, libro.autor, libro.ano, libro.precio, libro.cantidad, libro.estado])
         print(f'\nLibro "{libro.titulo}" registrado con éxito.')
-
+    
     def buscar_libro(self, criterio):
         resultados = []
         with open(self.archivo, mode='r', encoding='utf-8') as file:
@@ -36,6 +41,7 @@ class Libreria:
                 if criterio.lower() in ','.join(fila).lower():
                     resultados.append(Libro(*fila))
         return resultados
+    
     
     def actualizar_libro(self, titulo_libro,nuevos_datos):
         libros = []
@@ -57,12 +63,17 @@ class Libreria:
         else:
             print(f'\nLibro "{titulo_libro}" no encontrado')
     
-    def reporte(self, archivo_reporte='reporte_libreria.csv'):
-        with open(self.archivo, mode='r',encoding='uft-8') as file:
-            contenido = file.read()
-        with open(archivo_reporte, mode='w',encoding='uft-8') as file:
-            file.write(contenido)
-        print(f'\nReporte exportado como "{archivo_reporte}".') 
+    def imprimir_libros(self):
+        libros = []
+        with open(self.archivo, mode='r',newline='',encoding='utf-8') as file:
+            reader = csv.reader(file)
+            for fila in reader:
+                libros.append(Libro(*fila))
+        
+        ordenar = sorted(libros, key=lambda libro: libro.autor.lower())
+        print('\nLista de libros: \n')  
+        for libro in ordenar:
+            print(libro)        
 
 
 #Menú
@@ -74,7 +85,7 @@ def menu():
         print('1. Registrar un libro nuevo')
         print('2. Buscar un libro por título')
         print('3. Actualizar información de un libro')
-        print('4. Generar reporte')
+        print('4. Ver todos los libros')
         print('5. Salir')
         opcion = input('\nElige una opción: ')
 
@@ -84,12 +95,12 @@ def menu():
             ano = input('\nAño de publicación: ')  
             precio = input('\nPrecio del libro: ')  
             cantidad = input('\nCantidad disponible: ')  
-            estado = input('\nEstado del libro (Nuevo, Seminuevo, Aceptable): ')
+            estado = input('\nEstado del libro (Nuevo, Bueno, Aceptable): ')
             nuevo_libro = Libro(titulo,autor,ano,precio,cantidad,estado)
             libreria.registrar_libro(nuevo_libro)
 
         elif opcion == '2':
-            criterio = input('\nIngrese el título del libro: ')
+            criterio = input('\nIngrese el título o autor del libro: ')
             resultados = libreria.buscar_libro(criterio)
             if resultados:
                 print('\nLibros encontrados: ')
@@ -106,15 +117,12 @@ def menu():
             nuevo_ano = input('\nAño nuevo: ')
             nuevo_precio = input('\nPrecio nuevo: ')
             nueva_cantidad = input('\nNueva cantidad: ')
-            nuevo_estado = input('\Nuevo estado (Nuevo, Seminuevo, Aceptable): ')
+            nuevo_estado = input('\nNuevo estado (Nuevo, Seminuevo, Aceptable): ')
             nuevos_datos = [nuevo_titulo, nuevo_autor, nuevo_ano, nuevo_precio, nueva_cantidad, nuevo_estado]
             libreria.actualizar_libro(titulo_libro, nuevos_datos)
 
         elif opcion == '4':
-            archivo_reporte = input('\nNombre del archivo de reporte (Deje vacío para usar el nombre por defecto): ')
-            if not archivo_reporte:
-                archivo_reporte = 'reporte_libreria.csv'    
-            libreria.reporte = input(archivo_reporte)
+            libreria.imprimir_libros()
 
         elif opcion == '5':
             print('\nSaliendo del programa...')
