@@ -1,6 +1,17 @@
 """
 --- REGRISTRO DE LIBROS ---
 
+Programa que permite gestionar una pequeña base de datos de libros, añadiendo
+nuevos libros, modificando datos de los ya existentes, buscando por nombre
+o autor, o mostrando directamente todos los libros ordenados.
+
+Funcionamiento:
+
+1.Elegir una opción del menú:
+2. Se puede agregar un libro nuevo rellenando los campos solicitados,
+hacer una búsqueda de un libro o de los que tiene un autor, actualizar
+datos de un libro o mostrar todos. La última opción cierra el programa. 
+
 """
 
 import os
@@ -75,6 +86,34 @@ class Libreria:
         for libro in ordenar:
             print(libro)        
 
+#Validaciones
+
+def val_ano(ano):
+    if not ano.isdigit() or int(ano) < 0 or int (ano) > 2024:
+        raise ValueError('\nError: Ingresa un año válido.')
+
+def val_precio(precio):
+    try:
+        precio = float(precio)
+        if precio < 0:
+            raise ValueError('\nError: El precio tiene que ser positivo.')
+    except ValueError:
+        raise ValueError('\nEl precio debe ser un número válido.') 
+
+def val_cantidad(cantidad):
+    if not cantidad.isdigit() or int(cantidad) < 0:
+        raise ValueError('\nIngresa una cantidad válida.')  
+
+def val_estado(estado):
+    estados = ['Nuevo','Bueno','Aceptable']
+    if estado not in estados:
+        raise ValueError('\nIngresa un estado válido: nuevo, bueno, aceptable')   
+
+def val_campo(campo, nombre):
+    if not campo.strip():
+        raise ValueError(f'El campo "{nombre}" no puede estar vacío')
+
+
 
 #Menú
                                            
@@ -83,21 +122,30 @@ def menu():
     while True:
         print('\n-- LIBRERÍA SEGUNDA MANO --')
         print('1. Registrar un libro nuevo')
-        print('2. Buscar un libro por título')
+        print('2. Buscar un libro por título o autor')
         print('3. Actualizar información de un libro')
         print('4. Ver todos los libros')
         print('5. Salir')
         opcion = input('\nElige una opción: ')
 
         if opcion == '1':
-            titulo = input('\nTítulo del libro: ')
-            autor = input('\nAutor del libro: ')  
-            ano = input('\nAño de publicación: ')  
-            precio = input('\nPrecio del libro: ')  
-            cantidad = input('\nCantidad disponible: ')  
-            estado = input('\nEstado del libro (Nuevo, Bueno, Aceptable): ')
-            nuevo_libro = Libro(titulo,autor,ano,precio,cantidad,estado)
-            libreria.registrar_libro(nuevo_libro)
+            try:
+                titulo = input('\nTítulo del libro: ')
+                val_campo(titulo, 'Título')
+                autor = input('\nAutor del libro: ')
+                val_campo(autor, 'Autor')  
+                ano = input('\nAño de publicación: ') 
+                val_ano(ano) 
+                precio = input('\nPrecio del libro: ')
+                val_precio(precio)  
+                cantidad = input('\nCantidad disponible: ')  
+                val_cantidad(cantidad)
+                estado = input('\nEstado del libro (Nuevo, Bueno, Aceptable): ')
+                val_estado(estado)
+                nuevo_libro = Libro(titulo,autor,ano,precio,cantidad,estado)
+                libreria.registrar_libro(nuevo_libro)
+            except ValueError as e:
+                print(f'\nError: {e}')    
 
         elif opcion == '2':
             criterio = input('\nIngrese el título o autor del libro: ')
@@ -112,14 +160,24 @@ def menu():
         elif opcion == '3':
             titulo_libro = input('\nTítulo del libro a actualizar: ')
             print('\nIngresa los datos nuevos')
-            nuevo_titulo = input('\nTítulo nuevo: ')
-            nuevo_autor = input('\nAutor nuevo: ')
-            nuevo_ano = input('\nAño nuevo: ')
-            nuevo_precio = input('\nPrecio nuevo: ')
-            nueva_cantidad = input('\nNueva cantidad: ')
-            nuevo_estado = input('\nNuevo estado (Nuevo, Seminuevo, Aceptable): ')
-            nuevos_datos = [nuevo_titulo, nuevo_autor, nuevo_ano, nuevo_precio, nueva_cantidad, nuevo_estado]
-            libreria.actualizar_libro(titulo_libro, nuevos_datos)
+            try:
+                nuevo_titulo = input('\nTítulo nuevo: ')
+                val_campo(nuevo_titulo, 'Nuevo título')
+                nuevo_autor = input('\nAutor nuevo: ')
+                val_campo(nuevo_autor, 'Nuevo autor')
+                nuevo_ano = input('\nAño nuevo: ')
+                val_ano(nuevo_ano)
+                nuevo_precio = input('\nPrecio nuevo: ')
+                val_precio(nuevo_precio)
+                nueva_cantidad = input('\nNueva cantidad: ')
+                val_cantidad(nueva_cantidad)
+                nuevo_estado = input('\nNuevo estado (Nuevo, Seminuevo, Aceptable): ')
+                val_estado(nuevo_estado)
+
+                nuevos_datos = [nuevo_titulo, nuevo_autor, nuevo_ano, nuevo_precio, nueva_cantidad, nuevo_estado]
+                libreria.actualizar_libro(titulo_libro, nuevos_datos)
+            except ValueError as e:
+                print(f'\nError: {e}')    
 
         elif opcion == '4':
             libreria.imprimir_libros()
