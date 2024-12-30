@@ -1,6 +1,10 @@
 """
 --- RESTAURADOR DE ARCHIVOS ---
 
+Funcionamiento: Pequeño programa hecho a propósito para arreglar un archivo csv.
+El Restaurador recorrerá cada fila añadiendo los campos que faltan y añadiendo
+contenido en ellos si fuese necesario, como un precio por defecto.
+
 """
 
 
