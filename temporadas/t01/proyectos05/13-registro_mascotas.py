@@ -1,6 +1,11 @@
 '''
 --- REGISTRO DE MASCOTAS ---
 
+Funcionamiento: Programa que permite agregar mascotas a la
+base de datos de un refugio, actualizar sus datos, buscar 
+un mascota según parámetros y mostrar la lista entera de 
+mascotas.
+
 '''
 
 
@@ -79,7 +84,7 @@ class RegistroMascotas:
 def menu():
     registro = RegistroMascotas()
     while True:
-        print('\n--- Refugio de mascotas ---')
+        print('\n--- Refugio de mascotas ---\n')
         print('1. Registrar mascota nueva')
         print('2. Buscar mascota')
         print('3. Actualizar estado de mascota')
