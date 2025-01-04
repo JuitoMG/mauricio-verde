@@ -1,7 +1,7 @@
 # MAURICIO VERDE - LA SERIE
 ### El viaje de un desarrollador inquieto
 
-**Bienvenidos a mi portafolio!
+**Bienvenidos a mi portafolio!**
 Os invito a conocer a Mauricio Verde, un personaje que decide dar un vuelco a su vida estudiando programación, emprendiendo un viaje que le llevará a tocar muchos ámbitos de la vida con los que nunca tuvo contacto, conociendo y aprendiendo cómo funciona todo, mientras crece como profesional y persona. Un intento de amenizar la consulta de mis progresos, un sistema que además me permite tener otros lugares para explorar. Las cosas que vaya aprendiendo a partir de ahora serán susceptibles de ocurrirle a Mauricio en sus episodios. No te los pierdas!
 
 ## Quién es Mauricio Verde?
