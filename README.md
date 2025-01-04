@@ -5,8 +5,3 @@
 
 
 ## Quién es Mauricio Verde?
-
-
-
-
-
